@@ -1,0 +1,439 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 12;
+    height: 60px;
+}
+.navbar .nav-link {
+    color: white;
+    transition:all 300ms ease-in-out;
+    -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;   
+}
+.navbar .nav-link:hover {
+    color: rgb(197, 197, 197);
+    transition:all 300ms ease-in-out;
+    -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;
+}
+/* Akhir Navbar */
+
+/* Jumbotron */
+.jumbotron {
+    height: 100vh;
+    margin: 0;
+    background-image: url('../image/corona.jpg');
+    position: relative;
+    background-attachment: fixed;
+}
+.jumbotron-rs {
+    background-image: url('../image/hospital.jpg');
+    background-size: cover;
+}
+.jumbotron-statistik {
+    background-image: url('../image/statistic.jpg');
+    background-size: cover;
+}
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(124, 0, 68, 0.6));
+}
+.overlay-rs {
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(48, 5, 28, 0.8) 70%);
+}
+.overlay-statistik {
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(48, 3, 27, 0.8) 70%);
+}
+.container-display {
+    text-align: right;
+    position: absolute;
+    z-index: 9;
+    right: 90px;
+    top: 90px;
+    width: 520px;
+}
+.container-display h1 {
+    font-size: 65px;
+    font-weight: bold;
+}
+.container-display p.lead {
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.container-display p.sub-lead {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.container-display a {
+    border-radius: 0;
+    padding: 7px 20px;
+}
+.container-display a.btn-prov {
+    border-radius: 0;
+    padding: 7px 10px;
+    margin-left: 10px;
+}
+.container-display a:hover, .container-display a:focus, .container-display a:active  {
+    background-color: rgba(124, 0, 68, 0.4);
+    color: white;
+}
+.btn-down {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    z-index: 9;
+    left: 0;
+    text-align: center;
+}
+.icon-btn-down {
+    width: 50px;
+    margin: auto;
+    margin-bottom: 40px;
+    animation: btn-down-released .4s forwards;
+    cursor: pointer;
+}
+.icon-btn-down-rs {
+    padding-bottom: 40px;
+}
+.icon-btn-down:hover {
+    animation: btn-down .4s forwards;
+}
+.icon-btn-down a {
+    font-size: 45px;
+    text-decoration: none;
+    color: black;
+}
+.icon-btn-down-rs a {
+    color: white;
+}
+/* Akhir Jumbotron */
+
+/* Penjelasan Covid */
+.penjelasan {
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    padding: 30px 140px;
+    top: 28%;
+}
+.penjelasan .btn-more {
+    border-radius: 0;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    width: 200px;
+    border: 2px solid rgb(0, 0, 0);
+    font-weight: bold;
+}
+.penjelasan .btn-more:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+.black-area svg {
+    height: 150%;
+}
+/* Akhir Penjelasan Covid */
+
+/* Gejala Covid */
+.gejala-page {
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+}
+.penjelasan-gejala {
+    position: absolute;
+    text-align: center;
+    padding: 30px 140px;
+    top: 10%;
+    left: 0;
+    z-index: 7;
+}
+.penjelasan-gejalanya {
+    padding: 0 60px;
+}
+.macam-gejala {
+    margin-top: 70px;
+}
+.gejala {
+    width: 100%;
+    height: 300px;
+    background-color: white;
+    padding: 20px;
+}
+img.sym {
+    height: 110px;
+}
+.name-sym p {
+    font-weight: bold;
+    font-size: 14px;
+}
+.explain-sym p {
+    font-size: 12px;
+}
+/* Akhir Gejala Covid */
+
+/* Pencegahan */
+.wrapper {
+    width: 100%;
+    height: 300px;
+    background-color: #fff;
+    margin-top: 100px;
+    cursor: pointer;
+    padding: 25px;
+    transition:all 300ms ease-in-out;
+    -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;
+}
+.wrapper:hover {
+    box-shadow: 1px 1px 15px rgba(255, 255, 255, 0.8);
+    transition:all 300ms ease-in-out;
+    -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;
+}
+.pic-prevent {
+    height: 70px;
+}
+/* Akhir Pencegahan */
+
+/* Rumah Sakit */
+.header {
+    border-bottom: 1px solid black;
+    height: 50px;
+    position: relative;
+}
+h4.icon-hospital {
+    font-size: 30px;
+}
+h4.provinsi {
+    font-size: 15px;
+    color: rgb(82, 82, 82);
+}
+.body {
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    padding: 15px;
+    height: 230px;
+}
+.body .list-rs {
+    margin-bottom: 10px;
+}
+.body h6.nama-rs {
+    font-size: 12px;
+}
+.body p.alamat {
+    font-size: 11px;
+    margin: 0;
+    margin-bottom: 5px;
+}
+.button-more-rs {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+}
+.button-more-rs a {
+    width: 50%;
+}
+.btn-info {
+    border-radius: 0;
+    color: white;
+}
+.btn-info:hover {
+    background-color: #fff;
+    color: rgb(7, 110, 105) !important;
+}
+/* Akhir Rumah Sakit */
+
+/* Floating Statistic Button */
+a.statistic-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    font-size: 28px;
+    z-index: 7;
+}
+/* Akhir Floating Statistic Button */
+
+/* Emergency Hospital */
+.container-rs {
+    padding: 0 50px;
+}
+.rs-list {
+    width: 100vh;
+    height: 400px;
+    overflow: auto;
+    padding: 20px;
+}
+.gambar-dokter img {
+    margin-top: 60px;
+    width: 300px;
+    cursor: pointer;
+    transition:all 300ms ease-in-out;
+    -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;
+}
+.gambar-dokter img:hover {
+    margin-top: 50px;
+    width: 330px;
+    transition:all 300ms ease-in-out;
+    -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;
+}
+.rs h5 {
+    text-transform: uppercase;
+}
+.rs h6 {
+    color: rgb(110, 110, 110);
+}
+/* Akhir Emergency Hospital */
+
+/* Footer */
+.footer {
+    background-color: black;
+    color: white;
+}
+.footer h5 {
+    margin-bottom: 15px;
+}
+.footer p {
+    font-size: 14px;
+    text-align: justify;
+}
+.footer .col {
+    padding: 30px;
+}
+.footer a {
+    display: block;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 5px;
+    transition:all 300ms ease-in-out;
+    -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;
+}
+.footer a:hover {
+    color: rgb(197, 197, 197);
+    transition:all 300ms ease-in-out;
+    -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;
+}
+.footer button {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+}
+.footer small {
+    color: rgb(194, 194, 194);
+}
+/* Akhir Footer */
+
+/* Utilities */
+@keyframes btn-down {
+    0%{margin-bottom: 40px;}
+    100%{margin-bottom: 20px;}
+}
+@keyframes btn-down-released {
+    0%{margin-bottom: 20px;}
+    100%{margin-bottom: 40px;}
+}
+.bg-hitam, .bg-putih, .bg-opa-zero {
+    transition:all 300ms ease-in-out;
+    -webkit-transition:all 300ms ease-in-out;
+   -moz-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   -ms-transition:all 300ms ease-in-out;
+}
+.svg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 4;
+    width: 100%;
+}
+.svg-z-index-6 {
+    z-index: 8;
+}
+.page {
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    position: relative;
+}
+.page-black {
+    background-color: black;
+    position: relative;
+}
+h2.title-page {
+    font-weight: lighter;
+    font-size: 29px;
+}
+.modal .faq {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(59, 59, 59);
+}
+.modal .faq .pertanyaan {
+    font-weight: bold;
+    font-size: 14px;
+}
+.modal .faq .pertanyaan-next {
+    padding-top: 10px;
+}
+.modal .faq .jawaban {
+    font-size: 14px;
+    color: rgb(59, 59, 59);
+}
+/* Akhir Utilities */
+
+/* Scrollbar Style */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+::-webkit-scrollbar-track {
+    background-color: rgb(165, 164, 164);
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(66, 6, 39);
+    border-radius: 40px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(104, 9, 61);
+}

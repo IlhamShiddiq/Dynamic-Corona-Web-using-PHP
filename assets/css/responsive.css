@@ -1,0 +1,387 @@
+/* Extra Large Device */
+@media (min-width: 1200px) { 
+    /* Navbar */
+    .navbar .navbar-nav {
+        position: absolute;
+        right: 85px;
+        top: 10px;
+    }
+    .navbar .navbar-nav a {
+        margin: 0 10px;
+        font-size: 15px;
+        color: white;
+    }
+    /* Akhir Navbar */
+
+    /* Gejala */
+    .gejala-page {
+        height: 100vh;
+    }
+    /* Akhir Gejala */
+
+    /* Pencegahan */
+    .wrapper {
+        margin-top: 150px;
+    }
+    /* Akhir Pencegahan */
+
+    /* Rumah Sakit */
+    .rs-darurat {
+        height: 100vh;
+    }
+    /* Akhir Rumah Sakit */
+
+    /* Utilities */
+    .bg-hitam {
+        background-color: rgba(0, 0, 0);
+    }
+    .bg-putih {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+    .bg-opa-zero {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    .navbar-andro {
+        display: none;
+    }
+    /* Akhir Utilities */
+}
+
+/* Large Device */
+@media (max-width: 1199.98px) { 
+    html {
+        overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar .navbar-nav {
+        position: absolute;
+        right: 85px;
+        top: 10px;
+    }
+    .navbar .navbar-nav a {
+        margin: 0 10px;
+        font-size: 15px;
+        color: white;
+    }
+    /* Akhir Navbar */
+
+    /* Penjelasan */
+    .penjelasan {
+        top: 20%;
+    }
+    /* Akhir Penjelasan */
+
+    /* Gejala */
+    .gejala-page {
+        height: 100vh;
+    }
+    .penjelasan-gejala {
+        padding: 30px;
+        top: 10%;
+        width: 100%;
+        margin: 0;
+    }
+    .penjelasan-gejalanya {
+        padding: 0 60px;
+    }
+    .gejala {
+        margin-top: 20px;
+    }
+    /* Akhir Gejala */
+
+    /* Prevent */
+    .page-black {
+        height: 100vh;
+    }
+    /* Akhir Prevent */
+
+    /* Rumah Sakit */
+    .rs-darurat {
+        height: 100vh;
+    }
+    /* Akhir Rumah Sakit */
+
+    /* Utilities */
+    .bg-hitam {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    .bg-putih {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+    .bg-opa-zero {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    .navbar-andro {
+        display: none;
+    }
+    /* Akhir Utilities */
+}
+
+/* Tablet Device */
+@media (max-width: 991.98px) { 
+    .svg {
+        display: none;
+    }
+
+    /* Jumbotron */
+    .jumbotron {
+        background-size: cover;
+    }
+    .overlay-rs {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(48, 5, 28, 0.8));
+    }
+    .container-display {
+        right: 0;
+        top: 20%;
+        width: 100%;
+        text-align: center;
+    }
+    .container-display h1 {
+        font-size: 50px;
+        margin-bottom: 40px;
+    }
+    .container-display p.lead {
+        font-size: 17px;
+    }
+    .container-display p.sub-lead {
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+    .icon-btn-down {
+        animation: btn-down-released-sm .4s forwards;
+    }
+    .icon-btn-down:hover {
+        animation: btn-down-sm .4s forwards;
+    }
+    .icon-btn-down a {
+        font-size: 40px;
+        margin-bottom: 10px;
+        color: white;
+    }
+    /* Akhir Jumbotron */
+
+    /* Penjelasan */
+    .penjelasan {
+        padding: 30px 5px;
+        top: 23%;
+    }
+    /* Akhir Penjelasan */
+
+    /* Gejala */
+    .gejala-page {
+        height: 270vh;
+    }
+    .penjelasan-gejala {
+        padding: 30px;
+        top: 10%;
+        width: 100%;
+        margin: 0;
+    }
+    .penjelasan-gejalanya {
+        padding: 0;
+    }
+    .gejala {
+        margin-top: 20px;
+    }
+    /* Akhir Gejala */
+
+    /* Prevent */
+    .page-black {
+        height: 205vh;
+        padding-top: 30px;
+    }
+    .wrapper {
+        margin-top: 20px;
+        height: 220px;
+    }
+    /* Akhir Prevent */
+
+    /* Rumah Sakit */
+    .header {
+        height: 55px;
+    }
+    .rs-darurat {
+        height: 100vh;
+    }
+    h4.provinsi {
+        font-size: 13px;
+        font-weight: bold;
+    }
+    /* Akhir Rumah Sakit */
+
+    /* Emergency Hospital */
+    .rs {
+        height: 140vh;
+    }
+    /* Akhir Emergency Hospital */
+
+    /* Utilities */
+    .bg-putih, .bg-hitam, .bg-opa-zero {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    .navbar {
+        display: none;
+    }
+    .navbar-andro {
+        display: block;
+        position: fixed;
+        z-index: 8;
+        top: 0; right: 0;
+        width: 100%;
+        box-shadow: 1px 1px 3px 1px rgb(170, 170, 170);
+        background-color: #fff;
+        padding: 10px;
+    }
+    .navbar-andro a {
+        display: block;
+        margin: 8px;
+        text-decoration: none;
+        margin-left: 30px;
+    }
+    /* Akhir Utilities */
+}
+
+/* Landscape Mobile */
+@media (max-width: 767.98px) { 
+    .svg {
+        display: none;
+    }
+    /* Jumbotron */
+    .jumbotron {
+        background-position: -350px 0;
+        background-size: cover;
+    }
+    .container-display {
+        right: 0;
+        top: 30%;
+        width: 100%;
+        text-align: center;
+    }
+    .container-display h1 {
+        font-size: 45px;
+        margin-bottom: 40px;
+    }
+    .container-display p.lead {
+        font-size: 15px;
+    }
+    .container-display p.sub-lead {
+        font-size: 12px;
+        margin-bottom: 40px;
+    }
+    .waves {
+        display: none;
+    }
+    .icon-btn-down {
+        animation: btn-down-released-sm .4s forwards;
+    }
+    .icon-btn-down:hover {
+        animation: btn-down-sm .4s forwards;
+    }
+    .icon-btn-down a {
+        font-size: 35px;
+    }
+    /* Akhir Jumbotron */
+
+    /* Penjelasan */
+    .penjelasan {
+        padding: 30px 10px;
+        top: 12%;
+    }
+    /* Akhir Penjelasan */
+
+    /* Gejala */
+    .gejala-page {
+        height: 280vh;
+    }
+    .penjelasan-gejala {
+        padding: 30px;
+        top: 10%;
+        width: 100%;
+        margin: 0;
+    }
+    .penjelasan-gejalanya {
+        padding: 0;
+    }
+    .gejala {
+        margin-top: 20px;
+    }
+    /* Akhir Gejala */
+}
+
+/* Mobile Device */
+@media (max-width: 575.98px)  { 
+    .svg {
+        display: none;
+    }
+    /* Jumbotron */
+    .jumbotron {
+        background-position: -350px 0;
+        background-size: cover;
+    }
+    .container-display {
+        right: 0;
+        top: 30%;
+        width: 100%;
+        text-align: center;
+    }
+    .container-display h1 {
+        font-size: 45px;
+        margin-bottom: 40px;
+    }
+    .container-display p.lead {
+        font-size: 15px;
+    }
+    .container-display p.sub-lead {
+        font-size: 12px;
+        margin-bottom: 40px;
+    }
+    .icon-btn-down {
+        animation: btn-down-released-sm .4s forwards;
+    }
+    .icon-btn-down:hover {
+        animation: btn-down-sm .4s forwards;
+    }
+    .icon-btn-down a {
+        font-size: 35px;
+    }
+    /* Akhir Jumbotron */
+
+    /* Penjelasan */
+    .penjelasan {
+        padding: 10px 0px;
+        top: 15%;
+    }
+    /* Akhir Penjelasan */
+
+    /* Gejala */
+    .penjelasan-gejala {
+        padding: 30px;
+        top: 10%;
+        width: 100%;
+        margin: 0;
+    }
+    .penjelasan-gejalanya {
+        padding: 0;
+    }
+    .gejala {
+        margin-top: 20px;
+    }
+    /* Akhir Gejala */
+
+    /* Rumah Sakit */
+    .rs-darurat {
+        height: 100vh;
+    }
+}
+
+/* Utilities */
+@keyframes btn-down-sm {
+    0%{margin-bottom: 20px;}
+    100%{margin-bottom: 10px;}
+}
+@keyframes btn-down-released-sm {
+    0%{margin-bottom: 10px;}
+    100%{margin-bottom: 20px;}
+}
+/* Akhir Utilities */
