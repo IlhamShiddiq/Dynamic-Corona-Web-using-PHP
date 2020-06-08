@@ -1,3 +1,27 @@
+<?php
+  // Database Connect
+  require "dbConnect.php";
+  require "total.php";
+  require "cases_info.php";
+?>
+<?php
+  // Show All Related Data
+  $id = $_GET['province_id'];
+
+  // Province
+  $prov = $con->prepare("SELECT province FROM data_province WHERE id_province=:prov");
+  $prov->bindParam(':prov', $id);
+  $prov->execute();
+
+  $record_prov = $prov->fetch(PDO::FETCH_ASSOC);
+  $province = $record_prov['province'];
+
+  // List Hospital
+  $list_h = $con->prepare("SELECT * FROM data_hospital WHERE id_province=:province");
+  $list_h->bindParam(':province', $id);
+  $list_h->execute();
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -26,9 +50,9 @@
           <h1 class="display-4">Rumah Sakit</h1>
           <p class="lead mt-4">Layanan Darurat Covid-19 Indonesia</p>
           <p class="sub-lead">Tersebar di semua provinsi di Indonesia. Rumah sakit yang digunakan khusus untuk penanganan pasien yang terinfeksi virus corona.</p>
-          <a type="button" class="btn btn-sm btn-outline-light mt-2"><i class="far fa-hospital"></i> &nbsp;136 Rumah Sakit di Indonesia</a>
-          <a type="button" class="btn btn-sm btn-outline-light btn-prov mt-2"><i class="fas fa-share"></i> &nbsp;34 Daerah/Provinsi</a>
-          <p class="sub-lead mt-3">- Sumatera Utara</p>
+          <a type="button" class="btn btn-sm btn-outline-light mt-2"><i class="far fa-hospital"></i> &nbsp;<?php echo $j_hosp; ?> Rumah Sakit di Indonesia</a>
+          <a type="button" class="btn btn-sm btn-outline-light btn-prov mt-2"><i class="fas fa-share"></i> &nbsp;<?php echo $j_prov; ?> Daerah/Provinsi</a>
+          <p class="sub-lead mt-3">- <?php echo $province; ?></p>
         </div>
         <div class="overlay overlay-rs"></div>
         <div class="waves svg svg-z-index-6">
@@ -52,28 +76,20 @@
           </div>
           <div class="col-lg-7 col-sm-12 rs-list">
             <div class="daerah" id="sumatera-utara">
-              <h5>sumatera utara</h5>
+              <h5><?php echo $province; ?></h5>
               <ol type="1">
+
+              <?php
+                while($list = $list_h->fetch(PDO::FETCH_ASSOC)):
+              ?>
+
                 <li>
-                  <h6>RSUP H. Adam Malik Medan</h6>
-                  <p>Jl. Bunga Lau No.17. Telp: (061) 8360381</p>
+                  <h6><?php echo $list['hospital_name']; ?></h6>
+                  <p><?php echo $list['address_telp']; ?></p>
                 </li>
-                <li>
-                  <h6>RSU Kabanjahe</h6>
-                  <p>Jl. KS Ketaren 8, Kabanjahe. Telp: (0628) 20550</p>
-                </li>
-                <li>
-                  <h6>RSU Dr. Djasamen Saragih Pematang Siantar</h6>
-                  <p>Jl. Sutomo No.230, Pematang Siantar. Telp: (0622) 22959</p>
-                </li>
-                <li>
-                  <h6>RSUD Tarutung</h6>
-                  <p>Jl. H. Agus Salim No.1, Tapanuli Utara. Telp: (0633) 21303</p>
-                </li>
-                <li>
-                  <h6>RSU Padang Sidempuan</h6>
-                  <p>Jl. Dr. Ferdinand Lumban Tobing No.10, Padang Sidempuan. Telp: (0634) 21780, 21251</p>
-                </li>
+
+              <?php endwhile; ?>
+
               </ol>
             </div>
           </div>
@@ -112,10 +128,10 @@
           </div>
           <div class="col col-12 col-lg-4">
             <h5>Kasus di Indonesia</h5>
-            <button type="button" class="btn btn-danger btn-sm">14.265 Kasus Positif Corona</button>
-            <button type="button" class="btn btn-success btn-sm">2.881 Kasus Sembuh Corona</button>
-            <button type="button" class="btn btn-secondary btn-sm">991 Kasus Meninggal Corona</button>
-            <small>Last update Senin, 11 Mei 2020 16:30 WIB</small>
+            <button type="button" class="btn btn-danger btn-sm"><?php echo $positive; ?> Kasus Positif Corona</button>
+            <button type="button" class="btn btn-success btn-sm"><?php echo $healed; ?> Kasus Sembuh Corona</button>
+            <button type="button" class="btn btn-secondary btn-sm"><?php echo $dead; ?> Kasus Meninggal Corona</button>
+            <small>Last update <?php echo $format_date; ?> WIB</small>
           </div>
         </div>
       </div>
