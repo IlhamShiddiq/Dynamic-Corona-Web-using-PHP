@@ -216,6 +216,13 @@
     }
     /* Akhir Emergency Hospital */
 
+    /* Login Page */
+    .overlay-white .wrapper-form {
+        width: 80%;
+        padding: 60px 60px;
+    }
+    /* Akhir Login Page */
+
     /* Utilities */
     .bg-putih, .bg-hitam, .bg-opa-zero {
         background-color: rgba(0, 0, 0, 0);
@@ -307,6 +314,13 @@
         margin-top: 20px;
     }
     /* Akhir Gejala */
+
+    /* Login Page */
+    .overlay-white .wrapper-form {
+        width: 90%;
+        padding: 60px 60px;
+    }
+    /* Akhir Login Page */
 }
 
 /* Mobile Device */
@@ -373,6 +387,14 @@
     .rs-darurat {
         height: 100vh;
     }
+    /* Akhir Rumah Sakit */
+
+    /* Login Page */
+    .overlay-white .wrapper-form {
+        width: 90%;
+        padding: 60px 60px;
+    }
+    /* Akhir Login Page */
 }
 
 /* Utilities */
