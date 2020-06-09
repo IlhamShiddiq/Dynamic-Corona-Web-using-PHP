@@ -32,20 +32,32 @@
                         </div>
                     </div>
                     <div class="form">
-                        <form>
+                        <form action="process/login-check.php" method="post">
                             <div class="form-group">
                               <label >Username</label>
-                              <input type="text" class="form-control" required placeholder="Enter email">
+                              <input type="text" class="form-control" name="username" autocomplete="off" required placeholder="Enter username">
                             </div>
                             <div class="form-group">
                               <label >Password</label>
-                              <input type="password" class="form-control" required placeholder="Enter password">
+                              <input type="password" class="form-control" name="password" autocomplete="off" required placeholder="Enter password">
                             </div>
                             <div class="button">
                                 <button type="submit" class="btn btn-primary mt-4 shadow">Submit</button>
                             </div>
                         </form>
                     </div>
+
+                    <?php if(isset($_GET['failed_request_data'])): ?>
+
+                    <div class="alert alert-dismissible fade show text-center" role="alert">
+                        <strong>Account</strong> is not recognized!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <?php endif; ?>
+
                 </div>
             </div>
         </div>

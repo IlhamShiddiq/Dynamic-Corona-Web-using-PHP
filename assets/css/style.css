@@ -472,6 +472,8 @@ h2.title-page {
     margin-top: 120px;
     border-radius: 10px;
     position: relative;
+}
+.overlay-white .wrapper-form .form {
     padding: 60px 80px;
 }
 .overlay-white .wrapper-form .form input {
@@ -495,6 +497,14 @@ h2.title-page {
     width: 100%;
     top: 0; left: 0;
     z-index: 5;
+}
+.overlay-white .wrapper-form .alert {
+    position: absolute;
+    width: 100%;
+    bottom: 0; left: 0;
+    z-index: 5;
+    background-color: rgba(226, 30, 17);
+    color: white;
 }
 .overlay-white .wrapper-form .circle-wrapper .circle-virus {
     width: 125px;
