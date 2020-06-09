@@ -386,6 +386,7 @@
             <a href="#cegah">Pencegahan</a>
             <a href="#rs-darurat">Rumah sakit darurat</a>
             <a href="#" data-toggle="modal" data-target="#faq">FAQ</a>
+            <a href="admin-login.php">Admin</a>
           </div>
           <div class="col col-12 col-lg-4">
             <h5>Kasus di Indonesia</h5>
