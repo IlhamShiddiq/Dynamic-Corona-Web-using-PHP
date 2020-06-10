@@ -484,7 +484,7 @@ h2.title-page {
 }
 .overlay-white .wrapper-form .form button {
     border-radius: 0;
-    width: 50%;
+    width: 60%;
     background-color: rgb(104, 9, 61);
     border-color: rgb(104, 9, 61);;
 }
@@ -517,3 +517,56 @@ h2.title-page {
     padding-top: 15px;
 }
 /* Akhir Login Page */
+
+/* Admin Page */
+body.admin-only {
+    background-color: #fff;
+}
+.wrapper-admin {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 65px 75px;
+}
+.box-admin-wrapper {
+    width: 100%;
+    height: 80vh;
+    background-color: rgb(228, 228, 228);
+}
+.box-admin-wrapper .header-box {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+.box-admin-wrapper .body-box {
+    width: 100%;
+    background-color: rgb(228, 228, 228);
+    padding: 30px 0;
+}
+.admin-bg-light {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+.box-admin-wrapper .body-box .statistic-infected {
+    height: 200px;
+    padding: 20px 0;
+}
+.box-admin-wrapper .body-box .admin-list {
+    height: 200px;
+    padding: 20px 0;
+}
+.box-admin-wrapper .body-box .province-list {
+    height: 200px;
+    padding: 20px 0;
+}
+.box-admin-wrapper .body-box .bottom-box {
+    margin-top: -200px;
+}
+.box-admin-wrapper .body-box .hospital-info-admin {
+    height: 430px;
+    padding: 20px 0;
+}
+/* Admin Page */
