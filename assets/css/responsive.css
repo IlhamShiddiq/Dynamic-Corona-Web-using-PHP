@@ -223,6 +223,22 @@
     }
     /* Akhir Login Page */
 
+    /* Admin Page */
+    .admin-bg-light {
+        margin: 5px 0;
+    }
+    .box-admin-wrapper .body-box .bottom-box {
+        margin-top: 5px;
+    }
+    .box-admin-wrapper .body-box .bottom-box-scnd {
+        margin-top: 5px;
+    }
+    .box-admin-wrapper .body-box {
+        margin-bottom: 30px;
+        padding: 10px 0;
+    }
+    /* Akhir Admin Page */
+
     /* Utilities */
     .bg-putih, .bg-hitam, .bg-opa-zero {
         background-color: rgba(0, 0, 0, 0);
