@@ -535,7 +535,7 @@ body.admin-only {
 }
 .box-admin-wrapper .header-box {
     width: 100%;
-    height: 40px;
+    padding: 10px 10px 5px 10px;
     background-color: rgb(255, 255, 255);
     border-bottom: 1px solid rgb(228, 228, 228);
 }
