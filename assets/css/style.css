@@ -619,4 +619,7 @@ body.admin-only {
 .growth-total-death {
     background-color: rgb(56, 56, 56);
 }
+.admin-list-view-all a {
+    font-size: 13px;
+}
 /* Admin Page */
