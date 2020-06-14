@@ -622,4 +622,8 @@ body.admin-only {
 .admin-list-view-all a {
     font-size: 13px;
 }
+.hospital-list {
+    overflow: auto;
+    height: 280px;
+}
 /* Admin Page */
