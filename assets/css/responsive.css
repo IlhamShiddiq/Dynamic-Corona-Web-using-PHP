@@ -236,6 +236,15 @@
     .box-admin-wrapper .body-box {
         padding: 10px 0;
     }
+    .positive {
+        margin-top: 30px;
+    }
+    .grafik {
+        margin-top: 20px;
+    }
+    .refresh {
+        margin-left: 20px;
+    }
     /* Akhir Admin Page */
 
     /* Utilities */
@@ -336,6 +345,12 @@
         padding: 0;
     }
     /* Akhir Login Page */
+
+    /* Admin Page */
+    .refresh {
+        margin-left: 12px;
+    }
+    /* Akhir Admin Page */
 }
 
 /* Mobile Device */
@@ -410,6 +425,12 @@
         padding: 0;
     }
     /* Akhir Login Page */
+
+    /* Admin Page */
+    .refresh {
+        margin-left: 5px;
+    }
+    /* Akhir Admin Page */
 }
 
 /* Utilities */

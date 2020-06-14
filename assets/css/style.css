@@ -589,6 +589,9 @@ body.admin-only {
     position: relative;
     padding-top: 12px;
 }
+.total .detail-total h6 {
+    font-size: 14px;
+}
 .growth-total {
     width: 30%;
     height: 45px;
