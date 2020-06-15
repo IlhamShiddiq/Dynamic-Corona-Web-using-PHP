@@ -1,6 +1,6 @@
 <?php
   // Cases Total
-  $cases = $con->prepare("SELECT * FROM data_statistic ORDER BY id_statistic DESC LIMIT 1");
+  $cases = $con->prepare("SELECT SUM(positive) AS positive, SUM(healed) AS healed, SUM(dead) AS dead FROM data_statistic ORDER BY id_statistic DESC LIMIT 1");
   $cases->execute();
 
   $record_statistic = $cases->fetch(PDO::FETCH_ASSOC);
