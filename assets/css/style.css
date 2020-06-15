@@ -420,6 +420,11 @@ h2.title-page {
     font-size: 14px;
     color: rgb(59, 59, 59);
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 /* Akhir Utilities */
 
 /* Scrollbar Style */
@@ -626,4 +631,43 @@ body.admin-only {
     overflow: auto;
     height: 280px;
 }
-/* Admin Page */
+.modal-content {
+    border-radius: 0;
+}
+.modal-body {
+    padding: 5px 30px;
+}
+.bg-red {
+    background-color: rgb(158, 0, 0);
+}
+.bg-green {
+    background-color: rgb(8, 92, 0);
+}
+.bg-gray {
+    background-color: rgb(56, 56, 56);
+}
+input.positive-input:focus {
+    box-shadow: 0 0 8px 1px rgb(158, 0, 0);
+}
+input.recovered-input:focus {
+    box-shadow: 0 0 8px 1px rgb(8, 92, 0);
+}
+input.death-input:focus {
+    box-shadow: 0 0 8px 1px rgb(56, 56, 56);
+}
+.modal-content-gray {
+    box-shadow: 0 0 1px 1px black;
+}
+.icon-green {
+    color: green;
+}
+.icon-red {
+    color: red;
+}
+.icon-green:hover {
+    color: rgb(0, 94, 0);
+}
+.icon-red:hover {
+    color: rgb(136, 0, 0);
+}
+/* Akhir Admin Page */

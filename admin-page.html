@@ -50,7 +50,7 @@
                                                 </div>
                                             </form>
                                             <form class="form-inline">
-                                                <button type="submit" class="btn btn-success btn-sm" style="width: 60%; margin-right: 5px;">Update</button>
+                                                <button type="button" class="btn btn-success btn-sm" style="width: 60%; margin-right: 5px;" data-toggle="modal" data-target="#update-cases">Update</button>
                                                 <button type="submit" class="btn btn-primary btn-sm refresh" style="width: 35%;"><i class="fas fa-sync-alt"></i></button>
                                             </form>
                                         </div>
@@ -108,16 +108,23 @@
                                                 <thead>
                                                   <tr>
                                                     <th scope="col">Hospital</th>
-                                                    <th scope="col" style="width: 30%;">Action</th>
+                                                    <th scope="col" style="width: 30%;" class="text-center">Action</th>
                                                   </tr>
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
+                                                    <td>Otto Otto Otto ..&nbsp;&nbsp; <button type="button" style="width: 75px; border-radius: 4px;" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail">Detail</button></td>
+                                                    <td class="text-center">
+                                                      <a href="#" class="icon-green" title="Edit" data-toggle="modal" data-target="#edit">
+                                                        <i class="fas fa-edit"></i>
+                                                      </a>
+                                                      <a href="#" class="icon-red" title="Delete" data-toggle="modal" data-target="#delete">
+                                                        <i class="fas fa-trash"></i>
+                                                      </a>
+                                                    </td>
                                                   </tr>
                                                   <tr>
-                                                    <td>Thornton</td>
+                                                    <td>Otto Otto Otto ..&nbsp;&nbsp; <button type="button" style="width: 75px; border-radius: 4px;" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail">Detail</button></td>
                                                     <td>@fat</td>
                                                   </tr>
                                                   <tr>
@@ -163,7 +170,7 @@
                                             <h6>Admin list</h6>
                                         </div>
                                         <div class="col-6 admin-list-view-all text-right pr-4">
-                                            <h6><a href="#">View All</a></h6>
+                                            <h6><a href="#" data-toggle="modal" data-target="#admin-list">View All</a></h6>
                                         </div>
                                         <div class="col-12">
                                             <table class="table table-sm table-hover mt-2">
@@ -201,7 +208,7 @@
                                             <h6>Province</h6>
                                         </div>
                                         <div class="col-6 admin-list-view-all text-right pr-4">
-                                            <h6><a href="#">View All</a></h6>
+                                            <h6><a href="#" data-toggle="modal" data-target="#province-list">View All</a></h6>
                                         </div>
                                         <div class="col-12">
                                             <table class="table table-sm table-hover mt-2">
@@ -236,6 +243,276 @@
             </div>
         </div>
     </div>
+
+    <!-- Modals -->
+    <div class="modal fade" id="update-cases" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Update Kasus</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <small class="form-text mb-1">Penambahan kasus positif</small>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-red text-white"><i class="fas fa-arrow-up"></i></div>
+                  </div>
+                  <input type="number" class="form-control positive-input" placeholder="Positive Cases" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <small class="form-text mb-1">Penambahan kasus sembuh</small>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-green text-white"><i class="fas fa-arrow-up"></i></div>
+                  </div>
+                  <input type="number" class="form-control recovered-input" placeholder="Recovered Cases" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <small class="form-text mb-1">Penambahan kasus meninggal</small>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-gray text-white"><i class="fas fa-arrow-up"></i></div>
+                  </div>
+                  <input type="number" class="form-control death-input" placeholder="Death Cases" required>
+                </div>
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" style="width: 50%; margin: auto;" class="btn btn-primary mt-2">Submit</button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="admin-list" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalScrollableTitle">Admin List</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <table class="table table-hover table-striped mt-3">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col" style="width: 10%;">#</th>
+                        <th scope="col" style="width: 45%;">Owner</th>
+                        <th scope="col" style="width: 45%;">Username</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-data">Add Data</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="province-list" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalScrollableTitle">Province List</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <table class="table table-hover table-striped mt-3">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col" style="width: 30%;">Id Province</th>
+                        <th scope="col" style="width: 70%;">Province</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="add-data" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content modal-content-gray">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Data</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-row">
+                <div class="col-md-6">
+                  <small>Owner</small>
+                  <input type="text" class="form-control" id="validationDefault01" placeholder="Enter here" required>
+                </div>
+                <div class="col-md-6">
+                  <small>Username</small>
+                  <input type="text" class="form-control" id="validationDefault01" placeholder="Enter here" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6">
+                  <small>Password</small>
+                  <input type="password" class="form-control" id="validationDefault01" placeholder="Enter here" required>
+                </div>
+                <div class="col-md-6">
+                  <small>Confirm Password</small>
+                  <input type="password" class="form-control" id="validationDefault01" placeholder="Enter here" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-12 text-center">
+                  <button class="btn btn-primary mt-3 mb-2" style="margin: auto; width: 50%;" type="submit">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <p>Otto Otto Otto</p>
+              <hr>
+              <p>Jawa Barat</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Edit Data</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container pt-2">
+              <form>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Province</label>
+                  <select class="form-control" id="exampleFormControlSelect1">
+                    <option>Jawa Barat</option>
+                    <option>Jawa Tengah</option>
+                    <option>Jawa Timur</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Hospital</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="form-group text-center">
+                  <button type="button" class="btn btn-success" style="width: 50%;">Save changes</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Please confirm</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body pt-3 pb-3">
+            Anda yakin ingin menghapus data ini?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            <button type="button" class="btn btn-danger">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Akhir Modals -->
 
 
     <!-- Optional JavaScript -->
