@@ -557,11 +557,13 @@ body.admin-only {
     min-height: 200px;
     padding: 20px 0;
     background-color: rgb(255, 255, 255);
+    position: relative;
 }
 .box-admin-wrapper .body-box .admin-list {
     height: 200px;
     padding: 20px 0;
     background-color: rgb(255, 255, 255);
+    position: relative;
 }
 .box-admin-wrapper .body-box .province-list {
     height: 200px;
@@ -575,6 +577,7 @@ body.admin-only {
     height: 430px;
     padding: 20px 0;
     background-color: rgb(255, 255, 255);
+    position: relative;
 }
 .grafik {
     width: 100%;
@@ -669,5 +672,20 @@ input.death-input:focus {
 }
 .icon-red:hover {
     color: rgb(136, 0, 0);
+}
+.alert-info-admin {
+    width: 100%;
+    padding: 5px;
+    position: absolute;
+    bottom: 0; left: 0;
+}
+.alert-info-admin .close {
+    padding-top: 3px;
+}
+.alert-success {
+    background-color: rgb(20, 109, 3);
+}
+.alert-danger {
+    background-color: rgb(219, 5, 5);
 }
 /* Akhir Admin Page */

@@ -9,8 +9,13 @@
     $check->bindParam(':pass', $password);
     $check->execute();
 
+    $fetch = $check->fetch(PDO::FETCH_ASSOC);
+
     if($check->rowCount() == 1){
-        header("Location: ../admin-page.html");
+        session_start();
+        $id = $fetch['id_user'];
+        $_SESSION['id'] = $id;
+        header("Location: ../admin-page.php");
     } else {
         header("Location: ../admin-login.php?failed_request_data=yes");
     }

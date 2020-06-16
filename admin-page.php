@@ -1,3 +1,28 @@
+<?php 
+  require "dbConnect.php";
+  require "cases_info.php";
+
+  session_start();
+  // Info Admin
+  $id = $_SESSION['id'];
+  $take = $con->prepare("SELECT * FROM data_user WHERE id_user=:id");
+  $take->bindParam(':id', $id);
+  $take->execute();
+
+  $fetch = $take->fetch(PDO::FETCH_ASSOC);
+  $owner = $fetch['owner'];
+  $uname = $fetch['username'];
+
+  // Growth info
+  $growth = $con->prepare("SELECT * FROM data_statistic ORDER BY id_statistic DESC LIMIT 1");
+  $growth->execute();
+
+  $gr = $growth->fetch(PDO::FETCH_ASSOC);
+  $gr_pos = $gr['positive'];
+  $gr_rec = $gr['healed'];
+  $gr_dea = $gr['dead'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +52,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-8">
-                            <h5>Welcome, Admin</h5>
+                            <h5>Welcome, <?php echo $owner; ?></h5>
                         </div>
                         <div class="col-4 mt-1 text-right">
-                            <h6><i class="fas fa-user-circle"></i>&nbsp; Admin</h6>
+                            <h6><i class="fas fa-user-circle"></i>&nbsp; <?php echo $uname; ?></h6>
                         </div>
                     </div>
                 </div>
@@ -43,13 +68,8 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-lg-3">
-                                            <h6>Pencatatan Kasus Covid-19 <small>per 13 Juni 2020</small></h6>
-                                            <form class="mt-3">
-                                                <div class="form-group">
-                                                  <input type="date" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" data-toggle="tooltip" data-placement="bottom" title="Lihat data pada tanggal">
-                                                </div>
-                                            </form>
-                                            <form class="form-inline">
+                                            <h6>Pencatatan Kasus Covid-19 <small>per <?php echo $date_only; ?></small></h6>
+                                            <form class="form-inline mt-5 pt-3">
                                                 <button type="button" class="btn btn-success btn-sm" style="width: 60%; margin-right: 5px;" data-toggle="modal" data-target="#update-cases">Update</button>
                                                 <button type="submit" class="btn btn-primary btn-sm refresh" style="width: 35%;"><i class="fas fa-sync-alt"></i></button>
                                             </form>
@@ -57,21 +77,21 @@
                                         <div class="col-lg-6">
                                             <div class="total">
                                                 <div class="detail-total positive">
-                                                    <h6 class="ml-3 text-white">30000 kasus positif Covid</h6>
+                                                    <h6 class="ml-3 text-white"><?php echo $positive; ?> kasus positif Covid</h6>
                                                     <div class="growth-total growth-total-positive pt-2 text-center">
-                                                        <small class="text-white"><i class="fas fa-arrow-up"></i>&nbsp;1024</small>
+                                                        <small class="text-white"><i class="fas fa-arrow-up"></i>&nbsp;<?php echo $gr_pos; ?></small>
                                                     </div>
                                                 </div>
                                                 <div class="detail-total recovered">
-                                                    <h6 class="ml-3 text-white">5000 sembuh</h6>
+                                                    <h6 class="ml-3 text-white"><?php echo $healed; ?> sembuh</h6>
                                                     <div class="growth-total growth-total-recovered pt-2 text-center">
-                                                        <small class="text-white"><i class="fas fa-arrow-up"></i>&nbsp;600</small>
+                                                        <small class="text-white"><i class="fas fa-arrow-up"></i>&nbsp;<?php echo $gr_rec; ?></small>
                                                     </div>
                                                 </div>
                                                 <div class="detail-total death">
-                                                    <h6 class="ml-3 text-white">1200 kasus meninggal</h6>
+                                                    <h6 class="ml-3 text-white"><?php echo $dead; ?> kasus meninggal</h6>
                                                     <div class="growth-total growth-total-death pt-2 text-center">
-                                                        <small class="text-white"><i class="fas fa-arrow-up"></i>&nbsp;200</small>
+                                                        <small class="text-white"><i class="fas fa-arrow-up"></i>&nbsp;<?php echo $gr_dea; ?></small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,6 +105,18 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <?php if(isset($_GET['success'])): ?>
+
+                                <div class="alert alert-<?php echo $_GET['type']; ?> alert-dismissible alert-info-admin fade show text-center text-white" role="alert">
+                                  <?php echo $_GET['act']; ?>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+
+                                <?php endif; ?>
+
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -255,14 +287,14 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form action="process/update_cases.php" method="POST">
               <div class="form-group">
                 <small class="form-text mb-1">Penambahan kasus positif</small>
                 <div class="input-group mb-2">
                   <div class="input-group-prepend">
                     <div class="input-group-text bg-red text-white"><i class="fas fa-arrow-up"></i></div>
                   </div>
-                  <input type="number" class="form-control positive-input" placeholder="Positive Cases" required>
+                  <input type="number" class="form-control positive-input" name="positive" placeholder="Positive Cases" required>
                 </div>
               </div>
               <div class="form-group">
@@ -271,7 +303,7 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text bg-green text-white"><i class="fas fa-arrow-up"></i></div>
                   </div>
-                  <input type="number" class="form-control recovered-input" placeholder="Recovered Cases" required>
+                  <input type="number" class="form-control recovered-input" name="recovered" placeholder="Recovered Cases" required>
                 </div>
               </div>
               <div class="form-group">
@@ -280,7 +312,7 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text bg-gray text-white"><i class="fas fa-arrow-up"></i></div>
                   </div>
-                  <input type="number" class="form-control death-input" placeholder="Death Cases" required>
+                  <input type="number" class="form-control death-input" name="death" placeholder="Death Cases" required>
                 </div>
               </div>
               <div class="form-group text-center">
@@ -289,7 +321,7 @@
             </form>
           </div>
           <div class="modal-footer">
-
+              <small class="text-muted">*Anda hanya dapat mengupdate satu kali dalam sehari</small>
           </div>
         </div>
       </div>
@@ -529,8 +561,7 @@
 			type: 'doughnut',
 			data: {
 				datasets: [{
-					label: '# of Votes',
-					data: [30000, 5000, 1200],
+					data: [<?php echo $positive; ?>, <?php echo $healed; ?>, <?php echo $dead; ?>],
 					backgroundColor: [
 					'rgb(253, 0, 0)',
 					'rgb(11, 131, 0)',

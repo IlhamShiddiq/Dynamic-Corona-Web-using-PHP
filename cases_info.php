@@ -9,9 +9,10 @@
   $dead = $record_statistic['dead'];
 
   // Latest Update
-  $date = $con->prepare("SELECT DATE_FORMAT(date_confirmed, '%W, %d %M %Y %H:%i') as day FROM data_statistic ORDER BY id_statistic DESC LIMIT 1");
+  $date = $con->prepare("SELECT DATE_FORMAT(date_confirmed, '%d %M %Y') as day_only, DATE_FORMAT(date_confirmed, '%W, %d %M %Y') as day, DATE_FORMAT(time_confirmed, '%H:%i') as time FROM data_statistic ORDER BY id_statistic DESC LIMIT 1");
   $date->execute();
 
   $record = $date->fetch(PDO::FETCH_ASSOC);
-  $format_date = $record['day'];
+  $format_date = $record['day']." ".$record['time'];
+  $date_only = $record['day_only'];
 ?>
