@@ -1,6 +1,7 @@
 <?php 
   require "dbConnect.php";
   require "cases_info.php";
+  require "process/show-list.php";
 
   session_start();
   // Info Admin
@@ -106,7 +107,7 @@
                                     </div>
                                 </div>
 
-                                <?php if(isset($_GET['success'])): ?>
+                                <?php if(isset($_GET['success_update'])): ?>
 
                                 <div class="alert alert-<?php echo $_GET['type']; ?> alert-dismissible alert-info-admin fade show text-center text-white" role="alert">
                                   <?php echo $_GET['act']; ?>
@@ -213,23 +214,31 @@
                                                   </tr>
                                                 </thead>
                                                 <tbody>
+                                                <?php
+                                                  while($rec_admin = $show_admin->fetch(PDO::FETCH_ASSOC)):
+                                                ?>
                                                   <tr>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
+                                                    <td><?php echo $rec_admin['owner']; ?></td>
+                                                    <td><?php echo $rec_admin['username']; ?></td>
                                                   </tr>
-                                                  <tr>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Larry the Bird</td>
-                                                    <td>@twitter</td>
-                                                  </tr>
+                                                  <?php endwhile; ?>
                                                 </tbody>
                                               </table>
                                         </div>
                                     </div>
                                 </div>
+                                
+                            <?php if(isset($_GET['success_add'])): ?>
+
+                            <div class="alert alert-<?php echo $_GET['type']; ?> alert-dismissible alert-info-admin fade show text-center text-white" role="alert">
+                              <?php echo $_GET['act']; ?>
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+
+                            <?php endif; ?>
+
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -349,21 +358,16 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php
+                        $no_adm = 1;
+                        while($rec_all_admin = $show_all_admin->fetch(PDO::FETCH_ASSOC)):
+                      ?>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
+                        <th scope="row"><?php echo $no_adm; ?></th>
+                        <td><?php echo $rec_all_admin['owner']; ?></td>
+                        <td><?php echo $rec_all_admin['username']; ?></td>
                       </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                      </tr>
+                      <?php $no_adm++; endwhile; ?>
                     </tbody>
                   </table>
                 </div>
@@ -434,25 +438,25 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form action="process/add-admin.php" method="post">
               <div class="form-row">
                 <div class="col-md-6">
                   <small>Owner</small>
-                  <input type="text" class="form-control" id="validationDefault01" placeholder="Enter here" required>
+                  <input type="text" class="form-control" id="validationDefault01" name="owner" placeholder="Enter here" required>
                 </div>
                 <div class="col-md-6">
                   <small>Username</small>
-                  <input type="text" class="form-control" id="validationDefault01" placeholder="Enter here" required>
+                  <input type="text" class="form-control" id="validationDefault01" name="username" placeholder="Enter here" required>
                 </div>
               </div>
               <div class="form-row">
                 <div class="col-md-6">
                   <small>Password</small>
-                  <input type="password" class="form-control" id="validationDefault01" placeholder="Enter here" required>
+                  <input type="password" class="form-control" id="validationDefault01" name="password" placeholder="Enter here" required>
                 </div>
                 <div class="col-md-6">
                   <small>Confirm Password</small>
-                  <input type="password" class="form-control" id="validationDefault01" placeholder="Enter here" required>
+                  <input type="password" class="form-control" id="validationDefault01" name="confirm" placeholder="Enter here" required>
                 </div>
               </div>
               <div class="form-row">

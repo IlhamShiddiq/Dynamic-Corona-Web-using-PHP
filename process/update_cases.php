@@ -34,8 +34,8 @@
         $insert->bindParam(':today', $today);
         $insert->execute();
 
-        header("Location: ../admin-page.php?act=Data Berhasil Ditambahkan&type=success&success=yes");
+        header("Location: ../admin-page.php?act=Data Berhasil Ditambahkan&type=success&success_update=yes");
     } else {
-        header("Location: ../admin-page.php?act=Tidak dapat menambah data lagi&type=danger&success=no");
+        header("Location: ../admin-page.php?act=Tidak dapat menambah data lagi&type=danger&success_update=no");
     }
 ?>
