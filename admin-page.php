@@ -260,18 +260,17 @@
                                                   </tr>
                                                 </thead>
                                                 <tbody>
+
+                                                  <?php
+                                                    while($rec_prov = $show_province->fetch(PDO::FETCH_ASSOC)):
+                                                  ?>
+
                                                   <tr>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
+                                                    <td><?php echo $rec_prov['id_province']; ?></td>
+                                                    <td><?php echo $rec_prov['province']; ?></td>
                                                   </tr>
-                                                  <tr>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Larry</td>
-                                                    <td>@twitter</td>
-                                                  </tr>
+
+                                                  <?php endwhile; ?>
                                                 </tbody>
                                               </table>
                                         </div>
@@ -403,18 +402,14 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <?php
+                        while($rec_all_province = $show_all_province->fetch(PDO::FETCH_ASSOC)):
+                      ?>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
+                        <td><?php echo $rec_all_province['id_province']; ?></td>
+                        <td><?php echo $rec_all_province['province']; ?></td>
                       </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                      </tr>
+                      <?php endwhile; ?>
                     </tbody>
                   </table>
                 </div>
