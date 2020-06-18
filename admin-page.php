@@ -128,71 +128,91 @@
                                             <h5>Hospital list</h5>
                                         </div>
                                         <div class="col-12" style="background-color: rgb(231, 87, 3); padding: 10px;">
-                                            <form action="" style="width: 100%;">
-                                                <select class="form-control form-control-sm" style="width: 50%;">
-                                                    <option>Jawa Barat</option>
-                                                    <option>Jawa Tengah</option>
-                                                    <option>Jawa Timur</option>
-                                                </select>
+                                            <form style="width: 100%;" action="process/hospital-act.php" method="post">
+                                                <div class="form-row">
+                                                  <div class="col-9">
+                                                    <select class="form-control form-control-sm" name="prov" style="width: 100%;">
+                                                        <?php
+                                                          while($prov = $show_select->fetch(PDO::FETCH_ASSOC)):
+                                                        ?>
+                                                        <option <?php if(isset($_GET['id_prov'])){if($_GET['id_prov'] == $prov['id_province']){echo "selected";}} ?> value="<?php echo $prov['id_province']; ?>"><?php echo $prov['province']; ?></option>
+                                                        <?php endwhile; ?>
+                                                    </select>
+                                                  </div>
+                                                  <div class="col-3 text-right">
+                                                    <button type="submit" style="width: 100%;" name="submit-prov" class="btn btn-primary btn-sm">Go</button>
+                                                  </div>
+                                                </div>
                                             </form>
                                         </div>
+                                        <div class="add text-right mt-2" style="width: 100%;">
+                                          <a href="#" class="icon-blue mt-2 mr-3" title="Add" data-toggle="modal" data-target="#add">
+                                            <i class="fas fa-plus"></i>
+                                          </a>
+                                        </div>
                                         <div class="col-12 mt-3 hospital-list">
-                                            <table class="table table-sm table-hover mt-2">
+                                                      
+                                            <table class="table table-sm table-hover">
                                                 <thead>
                                                   <tr>
-                                                    <th scope="col">Hospital</th>
+                                                    <th scope="col" colspan="2" class="text-center">Hospital</th>
                                                     <th scope="col" style="width: 30%;" class="text-center">Action</th>
                                                   </tr>
                                                 </thead>
                                                 <tbody>
+
+                                                  <?php
+                                                    if(isset($_GET['id_prov'])){
+                                                      $hosp = $con->prepare("SELECT LEFT(hospital_name, 10) AS name, id_hospital FROM data_hospital WHERE id_province=:id");
+                                                      $hosp->bindParam(':id', $_GET['id_prov']);
+                                                    } else {
+                                                      $hosp = $con->prepare("SELECT LEFT(hospital_name, 10) AS name, id_hospital FROM data_hospital WHERE id_province='P-ACH'");
+                                                    }
+                                                    $hosp->execute();
+
+                                                    while($record = $hosp->fetch(PDO::FETCH_ASSOC)):
+
+                                                      $detail = $con->prepare("SELECT * FROM data_hospital h, data_province p WHERE h.id_province=p.id_province AND id_hospital=:id_hosp");
+                                                      $detail->bindParam(':id_hosp', $record['id_hospital']);
+                                                      $detail->execute();
+
+                                                      $fetch_d = $detail->fetch(PDO::FETCH_ASSOC);
+                                                      $hosp_name = $fetch_d['hospital_name'];
+                                                      $hosp_add = $fetch_d['address_telp'];
+                                                      $hosp_reg = $fetch_d['province'];
+                                                  ?>
+
                                                   <tr>
-                                                    <td>Otto Otto Otto ..&nbsp;&nbsp; <button type="button" style="width: 75px; border-radius: 4px;" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail">Detail</button></td>
+                                                    <td><?php echo $record['name']; ?> ..&nbsp;&nbsp; </td>
+                                                    <td><button type="button" style="width: 75px; border-radius: 4px;" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail" data-name="<?php echo $hosp_name; ?>" data-address="<?php echo $hosp_add; ?>" data-region="<?php echo $hosp_reg; ?>">Detail</button></td>
                                                     <td class="text-center">
-                                                      <a href="#" class="icon-green" title="Edit" data-toggle="modal" data-target="#edit">
+                                                      <a href="#" class="icon-green" title="Edit" data-toggle="modal" data-target="#edit" data-id="<?php echo $record['id_hospital']; ?>" data-nam="<?php echo $hosp_name; ?>" data-add="<?php echo $hosp_add; ?>" data-reg="<?php echo $hosp_reg; ?>">
                                                         <i class="fas fa-edit"></i>
                                                       </a>
-                                                      <a href="#" class="icon-red" title="Delete" data-toggle="modal" data-target="#delete">
+                                                      <a href="#" class="icon-red" title="Delete" data-toggle="modal" data-target="#delete" data-id="<?php echo $record['id_hospital']; ?>">
                                                         <i class="fas fa-trash"></i>
                                                       </a>
                                                     </td>
                                                   </tr>
-                                                  <tr>
-                                                    <td>Otto Otto Otto ..&nbsp;&nbsp; <button type="button" style="width: 75px; border-radius: 4px;" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail">Detail</button></td>
-                                                    <td>@fat</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Larry the Bird</td>
-                                                    <td>@twitter</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Larry the Bird</td>
-                                                    <td>@twitter</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Larry the Bird</td>
-                                                    <td>@twitter</td>
-                                                  </tr>
+
+                                                  <?php endwhile; ?>
+                                                  
                                                 </tbody>
                                               </table>
                                         </div>
                                     </div>
                                 </div>
+                                <?php if(isset($_GET['success'])): ?>
+
+                                <div class="alert alert-<?php echo $_GET['type']; ?> alert-dismissible alert-info-admin fade show text-center text-white" role="alert">
+                                  <?php echo $_GET['act']; ?>
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+
+                                <?php endif; ?>
+                                
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -472,16 +492,13 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+            <h5 class="modal-title name" id="exampleModalCenterTitle"></h5>
           </div>
           <div class="modal-body">
-            <div class="container">
-              <p>Otto Otto Otto</p>
-              <hr>
-              <p>Jawa Barat</p>
-            </div>
+            <small class="address"></small>
           </div>
           <div class="modal-footer">
+            <p class="region"></p>
           </div>
         </div>
       </div>
@@ -498,27 +515,71 @@
           </div>
           <div class="modal-body">
             <div class="container pt-2">
-              <form>
+              <form action="process/hospital-act.php?id_prov=<?php echo $_GET['id_prov']; ?>" method="post">
                 <div class="form-group">
-                  <label for="exampleFormControlSelect1">Province</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Jawa Barat</option>
-                    <option>Jawa Tengah</option>
-                    <option>Jawa Timur</option>
-                  </select>
+                  <label for="exampleFormControlSelect1" disabled>Province</label>
+                  <input type="text" class="form-control edit-region" readonly>
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlTextarea1">Hospital</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea class="form-control edit-hospital" rows="2" name="hospital"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Address</label>
+                  <textarea class="form-control edit-address" rows="3" name="address"></textarea>
                 </div>
                 <div class="form-group text-center">
-                  <button type="button" class="btn btn-success" style="width: 50%;">Save changes</button>
+                  <button type="submit" name="edit" class="btn btn-success" style="width: 50%;">Save changes</button>
                 </div>
+                <div class="id"></div>
               </form>
             </div>
           </div>
           <div class="modal-footer">
-            
+            <small class="text-muted">Province tidak dapat diedit</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Edit Data</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container pt-2">
+              <form action="process/hospital-act.php?id_prov=<?php echo $_GET['id_prov']; ?>" method="post">
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Province</label>
+                  <select class="form-control form-control" name="prov" style="width: 100%;">
+                      <?php
+                        while($prov = $show_select_add->fetch(PDO::FETCH_ASSOC)):
+                      ?>
+                      <option value="<?php echo $prov['id_province']; ?>"><?php echo $prov['province']; ?></option>
+                      <?php endwhile; ?>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Hospital</label>
+                  <textarea class="form-control edit-hospital" rows="2" name="hospital" required></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Address</label>
+                  <textarea class="form-control edit-address" rows="3" name="address" required></textarea>
+                </div>
+                <div class="form-group text-center">
+                  <button type="submit" name="add" class="btn btn-success" style="width: 50%;">Add Data</button>
+                </div>
+                <div class="id"></div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
           </div>
         </div>
       </div>
@@ -535,10 +596,14 @@
           </div>
           <div class="modal-body pt-3 pb-3">
             Anda yakin ingin menghapus data ini?
+            <form action="process/hospital-act.php?id_prov=<?php echo $_GET['id_prov']; ?>" method="post" class="text-right mt-3">
+              <div class="id"></div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button type="submit" class="btn btn-danger" name="delete">Yes</button>
+            </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-            <button type="button" class="btn btn-danger">Yes</button>
+            
           </div>
         </div>
       </div>
@@ -571,10 +636,45 @@
 				}]
 			},
 			options: {
-                weight : 500,
 			}
 		});
 	</script>
+  <script>
+    $('#detail').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var name = button.data('name')
+      var address = button.data('address')
+      var region = button.data('region') // Extract info from data-* attributes
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal = $(this)
+      modal.find('.name').text(name)
+      modal.find('.address').text(address)
+      modal.find('.region').text(region)
+    }),
+    $('#delete').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var id = button.data('id') // Extract info from data-* attributes
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal = $(this)
+      modal.find('.id').html("<input type='hidden' name='id' value='"+id+"'>")
+    }),
+    $('#edit').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var id = button.data('id')
+      var name = button.data('nam')
+      var address = button.data('add')
+      var region = button.data('reg') // Extract info from data-* attributes
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      var modal = $(this)
+      modal.find('.id').html("<input type='hidden' name='id' value='"+id+"'>")
+      modal.find('.edit-region').val(region)
+      modal.find('.edit-hospital').val(name)
+      modal.find('.edit-address').val(address)
+    })
+  </script>
 
 </body>
 </html>

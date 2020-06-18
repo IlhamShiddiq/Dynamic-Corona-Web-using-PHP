@@ -632,7 +632,7 @@ body.admin-only {
 }
 .hospital-list {
     overflow: auto;
-    height: 280px;
+    height: 260px;
 }
 .modal-content {
     border-radius: 0;
@@ -666,6 +666,9 @@ input.death-input:focus {
 }
 .icon-red {
     color: red;
+}
+.icon-blue {
+    color: rgb(0, 170, 192);
 }
 .icon-green:hover {
     color: rgb(0, 94, 0);

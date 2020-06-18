@@ -12,4 +12,12 @@
     // Showing All province list
     $show_all_province = $con->prepare("SELECT * FROM data_province ORDER BY no");
     $show_all_province->execute();
+
+    // Showing items select
+    // Showing All province list
+    $show_select = $con->prepare("SELECT * FROM data_province ORDER BY no");
+    $show_select->execute();
+
+    $show_select_add = $con->prepare("SELECT * FROM data_province ORDER BY no");
+    $show_select_add->execute();
 ?>
