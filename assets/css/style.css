@@ -691,4 +691,9 @@ input.death-input:focus {
 .alert-danger {
     background-color: rgb(219, 5, 5);
 }
+.logout {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
 /* Akhir Admin Page */
