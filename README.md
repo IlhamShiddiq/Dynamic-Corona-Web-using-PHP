@@ -1,7 +1,10 @@
 Corona Website
 --------------------------
-Corona Website Dinamis menggunakan PHP Native <br>
+Corona Website using PHP Native <br>
 using mySQL and PDO Database Connection <br>
 Bootstrap Framework
 
-svgWave by <a href="https://getwaves.io/"> getwaves </a>
+Check this web [here](corona-statistic.000webhostapp.com) (username : <b>admin</b> & password : <b>admin</b>) <br><br>
+![Admin-page](https://i.imgur.com/K7Tx4yG.png)
+<br>
+svgWave by [getwaves](https://getwaves.io/)
