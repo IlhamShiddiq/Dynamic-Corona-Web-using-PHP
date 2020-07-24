@@ -120,12 +120,9 @@
           </div>
           <div class="col col-12 col-lg-2">
             <h5>Menu</h5>
-            <a href="#penjelasan-covid">Apa itu Corona?</a>
-            <a href="#gejala">Gejala</a>
-            <a href="#cegah">Pencegahan</a>
-            <a href="#rs-darurat">Rumah sakit darurat</a>
-            <a href="#" data-toggle="modal" data-target="#faq">FAQ</a>
-            <a href="#rs-darurat">Rumah sakit darurat</a>
+            <a href="index.php#penjelasan-covid">Apa itu Corona?</a>
+            <a href="index.php#gejala">Gejala</a>
+            <a href="index.php#cegah">Pencegahan</a>
           </div>
           <div class="col col-12 col-lg-4">
             <h5>Kasus di Indonesia</h5>
